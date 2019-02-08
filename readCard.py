@@ -1,6 +1,7 @@
 import argparse
 import cv2
 import pytesseract as pt
+import linkedinUrl
 
 def detectText(image):
 	"""Read text from image using tesseract"""
@@ -11,6 +12,7 @@ def detectText(image):
 	# cv2.waitKey(0)
 	result = pt.image_to_string(gray, lang="eng")
 	print(result)
+	url_list=linkedinUrl.get_link(result)
 
 
 if __name__ == "__main__":
