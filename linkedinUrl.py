@@ -10,7 +10,7 @@ def get_link(message):
 	  
 	url=[]
 
-	for i in  search(query, tld="com", num=1, stop=1, pause=2): # change num range to fetch more result
+	for i in  search(query, tld="com", num=10, stop=1, pause=2): # change num range to fetch more result
 		print(i)
 		url.append(i)
 	return url
