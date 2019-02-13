@@ -7,7 +7,7 @@ except ImportError:
 def get_link(message):
 	# to search 
 	query = "linked in "+message
-	  
+	print(query)
 	url=[]
 
 	for i in  search(query, tld="com", num=10, stop=1, pause=2): # change num range to fetch more result

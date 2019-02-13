@@ -2,10 +2,11 @@ from package import *
 
 def detectText(image):
     """Read text from image using tesseract"""
-    img = cv2.imread(image)
+    # print(image)
+    # img = cv2.imread(image)
 
+    img=image
     img = cv2.resize(img, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
-
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     kernel = np.ones((1, 1), np.uint8)
     img = cv2.dilate(img, kernel, iterations=1)
@@ -28,10 +29,10 @@ def detectText(image):
     print("******************************")
     print("Url output")
     url_list=linkedinUrl.get_link(result.replace(" ",""))
+    return result,url_list
 
-
-if __name__ == "__main__":
-    a = argparse.ArgumentParser()
-    a.add_argument("--image", help= "path to image")
-    args = a.parse_args()
-    detectText(args.image)
+# if __name__ == "__main__":
+#     a = argparse.ArgumentParser()
+#     a.add_argument("--image", help= "path to image")
+#     args = a.parse_args()
+#     detectText(args.image)
