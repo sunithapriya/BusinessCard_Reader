@@ -19,12 +19,12 @@ def detectText(image):
     # img = cv2.cvtColor(laplacian,cv2.COLOR_BGR2GRAY)
     # gray = cv2.threshold(img, 0, 255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
     
-    # cv2.imshow('image',img)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
+    cv2.imshow('image',img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
     
-
-    result = pt.image_to_string(img, lang="eng")
+    config = ('-l eng --oem 1 --psm 3')
+    result = pt.image_to_string(img, config=config) #, lang="eng")
     print(result)
     print("******************************")
     print("Url output")

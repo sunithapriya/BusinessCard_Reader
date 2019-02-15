@@ -14,11 +14,16 @@ def index():
 @app.route("/predict", methods=['POST'])     
 def trial():
     link_to_save = "/home/desktop-su-02/Documents/PPT/static" 
-    if str(request.method)==str('POST'):        
-        query_file=request.files['card']
+    if str(request.method)==str('POST'): 
+        try:       
+            query_file=request.files['card']
+        except:
+            query_file=request.files['card1']
         filename = secure_filename(query_file.filename) 
 
-        img = cv2.imdecode(np.fromstring(request.files['card'].read(), np.uint8), cv2.IMREAD_UNCHANGED)
+        print(filename)
+        print("************")
+        img = cv2.imdecode(np.fromstring(query_file.read(), np.uint8), cv2.IMREAD_UNCHANGED)
         text,url=readCard.detectText(img)
         
 

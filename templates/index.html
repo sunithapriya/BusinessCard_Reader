@@ -40,6 +40,15 @@ input[type=file] {
   /*border: 2px solid red;*/
   border-radius: 4px;
 }
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
 </style>
 
 
@@ -72,10 +81,23 @@ input[type=file] {
         <div class="form-group">
             <label for="inputEmail3" class="control-label">
             Please select the Business Card file:
+            </label> <br>
+            <center>
+            <label for="upload" class="custom-file-upload">
+            <i class="fa fa-camera" style="font-size:24px;color:red"> </i> Gallery
             </label>
-            <input id="upload" name= "card" class="file-upload__input" type="file" name="file-upload" accept="image/*" required>
+
+            <input id="upload" name= "card" class="file-upload__input" type="file" name="file-upload" accept="image/*" >
             <br><br>
+
+            <label for="capture" class="custom-file-upload">
+            <i class="fa fa-camera" style="font-size:24px;color:red"> </i> Camera
+            </label>
+            <input type="file" name ="card1" accept="image/*" id="capture" capture="camera"> 
+            <br><br>
+            
             <input type="submit" name="" class="btn btn-success" value="upload"> <br><br>
+            </center>
         </div>
     <hr>
 
