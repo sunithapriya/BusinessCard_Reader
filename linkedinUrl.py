@@ -1,18 +1,14 @@
-try: 
-    from googlesearch import search 
-except ImportError:  
-    print("No module named 'google' found") 
- 
+"""This script performs a google search to fetch LinkedIn Url"""
+try:
+	from googlesearch import search
+except ImportError:
+	print "No module named 'google' found"
 
 def get_link(message):
-	# to search 
+	"""Search LinkedIn Url"""
 	query = "linked in "+message
-	print(query)
-	url=[]
-
-	for i in  search(query, tld="com", num=10, stop=1, pause=2): # change num range to fetch more result
-		print(i)
+	query = query.encode('utf8')
+	url = []
+	for i in search(query, tld="com", num=10, stop=1, pause=2):
 		url.append(i)
 	return url
-
-# get_link("AJ vekata krishnan")
